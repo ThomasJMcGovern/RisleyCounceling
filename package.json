@@ -1,0 +1,19 @@
+{
+  "name": "risley-leskos-therapy",
+  "version": "1.0.0",
+  "description": "Risley Leskos - Licensed Therapist Website",
+  "scripts": {
+    "dev": "echo 'This is a static site - open index.html in your browser'",
+    "build": "echo 'No build required for static site'"
+  },
+  "keywords": [
+    "therapy",
+    "counseling",
+    "mental-health",
+    "therapist",
+    "los-angeles"
+  ],
+  "author": "Risley Leskos",
+  "license": "UNLICENSED",
+  "private": true
+}
