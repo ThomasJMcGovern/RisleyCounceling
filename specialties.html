@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specialties - Risley Counseling | Areas of Focus</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Specialized therapy areas including addiction recovery, trauma, anxiety, depression, relationships, and life transitions. Expert care tailored to your needs.">
+    <meta name="keywords" content="therapy specialties, addiction counseling, trauma therapy, anxiety treatment, depression therapy, Los Angeles">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #3a3a3a;
+            background-color: #faf8f5;
+            line-height: 1.6;
+            padding-top: 120px;
+        }
+
+        /* Header Styles */
+        .header-banner {
+            background-color: #a69b8c;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .main-header {
+            background-color: #f5f1eb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .main-header.header-hidden {
+            transform: translateY(-100%);
+        }
+
+        .header-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-link {
+            display: block;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .logo-link img {
+            height: 100%;
+            width: auto;
+            display: block;
+        }
+
+        .logo {
+            display: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #3a3a3a;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #a69b8c;
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #f5f1eb;
+            min-width: 200px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 12px 0;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        .dropdown-content::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid #f5f1eb;
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 5px;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px 20px;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e8e2d8;
+            color: #a69b8c;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background-color: #f5f1eb;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-family: Georgia, serif;
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #3a3a3a;
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            color: #a69b8c;
+            max-width: 700px;
+            margin: 0 auto;
+            letter-spacing: 1px;
+            line-height: 1.8;
+        }
+
+        /* Specialty Sections */
+        .specialty-section {
+            padding: 80px 20px;
+        }
+
+        .specialty-section:nth-child(even) {
+            background-color: #f5f1eb;
+        }
+
+        .specialty-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .specialty-section:nth-child(odd) .specialty-content {
+            direction: rtl;
+        }
+
+        .specialty-section:nth-child(odd) .specialty-text {
+            direction: ltr;
+        }
+
+        .specialty-image {
+            height: 400px;
+            background-color: #e8e2d8;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .specialty-icon {
+            font-size: 5rem;
+            color: #a69b8c;
+        }
+
+        .specialty-text h2 {
+            font-family: Georgia, serif;
+            font-size: 2.5rem;
+            color: #3a3a3a;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .specialty-text h3 {
+            color: #a69b8c;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .specialty-text p {
+            color: #5a5a5a;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .specialty-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .specialty-list li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+            color: #5a5a5a;
+        }
+
+        .specialty-list li:before {
+            content: "◈";
+            color: #a69b8c;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Approach Banner */
+        .approach-banner {
+            background-color: #a69b8c;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .approach-banner h2 {
+            font-family: Georgia, serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .approach-banner p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #faf8f5;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            color: #3a3a3a;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #a69b8c;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .btn:hover {
+            background-color: #8e8275;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: #a69b8c;
+        }
+
+        .btn-white:hover {
+            background-color: #f5f1eb;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #d4cfc4;
+            padding: 60px 20px 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: #3a3a3a;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #5a5a5a;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 2;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #3a3a3a;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #bbb4a8;
+            font-size: 0.85rem;
+            color: #5a5a5a;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 100px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .logo-link {
+                height: 60px;
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .specialty-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .specialty-section:nth-child(odd) .specialty-content {
+                direction: ltr;
+            }
+
+            .specialty-image {
+                height: 300px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-banner">
+        ACCEPTING NEW CLIENTS • TELETHERAPY AVAILABLE • EVENING AND WEEKEND APPOINTMENTS
+    </div>
+
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-link">
+                <img src="images/RisleyLogo.png" alt="Risley Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li class="dropdown">
+                        <a href="#about">ABOUT</a>
+                        <div class="dropdown-content">
+                            <a href="who-we-are.html">WHO WE ARE</a>
+                            <a href="our-approach.html">OUR APPROACH</a>
+                            <a href="faq.html">FAQS</a>
+                        </div>
+                    </li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="specialties.html">SPECIALTIES</a></li>
+                    <li><a href="approach.html">APPROACH</a></li>
+                    <li><a href="fees.html">FEES</a></li>
+                    <li><a href="resources.html">RESOURCES</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="book.html" class="book-btn">BOOK</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <script>
+        let lastScrollTop = 0;
+        const header = document.querySelector('.main-header');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+                header.classList.add('header-hidden');
+            } else {
+                header.classList.remove('header-hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+    </script>
+
+    <section class="page-hero">
+        <h1>AREAS OF SPECIALTY</h1>
+        <p>With extensive training and experience, I specialize in helping individuals, couples, and families navigate life's most challenging moments and find paths to healing and growth.</p>
+    </section>
+
+    <section class="specialty-section">
+        <div class="specialty-content">
+            <div class="specialty-image">
+                <span class="specialty-icon">◈</span>
+            </div>
+            <div class="specialty-text">
+                <h2>Addiction & Recovery</h2>
+                <h3>Finding Freedom from Substance Use</h3>
+                <p>Recovery is a journey of transformation that requires courage, support, and understanding. I provide compassionate, evidence-based treatment for individuals struggling with addiction and those in recovery.</p>
+                <ul class="specialty-list">
+                    <li>Alcohol and substance use disorders</li>
+                    <li>Early recovery support</li>
+                    <li>Relapse prevention</li>
+                    <li>Dual diagnosis treatment</li>
+                    <li>Family impact of addiction</li>
+                    <li>Sober lifestyle development</li>
+                </ul>
+                <a href="contact.html" class="btn">GET SUPPORT</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="specialty-section">
+        <div class="specialty-content">
+            <div class="specialty-image">
+                <span class="specialty-icon">◉</span>
+            </div>
+            <div class="specialty-text">
+                <h2>Trauma & PTSD</h2>
+                <h3>Healing from Past Wounds</h3>
+                <p>Trauma can leave lasting impacts on our minds and bodies. Using specialized approaches including EMDR and somatic therapies, I help clients process traumatic experiences and reclaim their sense of safety and wholeness.</p>
+                <ul class="specialty-list">
+                    <li>Childhood trauma</li>
+                    <li>Complex PTSD</li>
+                    <li>Sexual trauma</li>
+                    <li>Accident and injury trauma</li>
+                    <li>Developmental trauma</li>
+                    <li>Vicarious trauma</li>
+                </ul>
+                <a href="approach.html" class="btn">LEARN ABOUT EMDR</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="specialty-section">
+        <div class="specialty-content">
+            <div class="specialty-image">
+                <span class="specialty-icon">☼</span>
+            </div>
+            <div class="specialty-text">
+                <h2>Anxiety & Depression</h2>
+                <h3>Finding Balance and Peace</h3>
+                <p>When anxiety and depression take hold, life can feel overwhelming and disconnected. I offer evidence-based treatments that address both the symptoms and underlying causes, helping you reconnect with joy and purpose.</p>
+                <ul class="specialty-list">
+                    <li>Generalized anxiety disorder</li>
+                    <li>Panic attacks</li>
+                    <li>Social anxiety</li>
+                    <li>Major depression</li>
+                    <li>Persistent depressive disorder</li>
+                    <li>Mood regulation</li>
+                </ul>
+                <a href="services.html" class="btn">EXPLORE TREATMENT</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="specialty-section">
+        <div class="specialty-content">
+            <div class="specialty-image">
+                <span class="specialty-icon">◑</span>
+            </div>
+            <div class="specialty-text">
+                <h2>Relationships & Intimacy</h2>
+                <h3>Building Deeper Connections</h3>
+                <p>Healthy relationships are fundamental to our wellbeing. Whether you're navigating challenges in your partnership or seeking to improve your relationship patterns, I provide a safe space to explore and grow.</p>
+                <ul class="specialty-list">
+                    <li>Communication difficulties</li>
+                    <li>Trust and betrayal</li>
+                    <li>Intimacy issues</li>
+                    <li>Attachment patterns</li>
+                    <li>Conflict resolution</li>
+                    <li>Relationship transitions</li>
+                </ul>
+                <a href="services.html" class="btn">STRENGTHEN YOUR BOND</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="specialty-section">
+        <div class="specialty-content">
+            <div class="specialty-image">
+                <span class="specialty-icon">◎</span>
+            </div>
+            <div class="specialty-text">
+                <h2>Life Transitions</h2>
+                <h3>Navigating Change with Grace</h3>
+                <p>Life's transitions—whether chosen or unexpected—can leave us feeling unmoored. I help clients find stability and meaning during times of change, turning challenges into opportunities for growth.</p>
+                <ul class="specialty-list">
+                    <li>Career changes</li>
+                    <li>Divorce and separation</li>
+                    <li>Loss and grief</li>
+                    <li>Identity exploration</li>
+                    <li>Empty nest syndrome</li>
+                    <li>Retirement adjustment</li>
+                </ul>
+                <a href="contact.html" class="btn">START YOUR JOURNEY</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="approach-banner">
+        <h2>MY THERAPEUTIC APPROACH</h2>
+        <p>I integrate evidence-based practices with a deep understanding of the mind-body connection. My approach is tailored to each client's unique needs, drawing from various modalities including psychodynamic therapy, EMDR, somatic experiencing, and mindfulness-based interventions.</p>
+        <a href="approach.html" class="btn btn-white">LEARN MORE</a>
+    </section>
+
+    <section class="cta-section">
+        <h2>READY TO TAKE THE FIRST STEP?</h2>
+        <a href="book.html" class="btn">BOOK A SESSION</a>
+        <a href="contact.html" class="btn btn-outline">CONTACT ME</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>HOME</h3>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="who-we-are.html">ABOUT</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>FEES</h3>
+                <ul>
+                    <li><a href="fees.html">FEES</a></li>
+                    <li><a href="faq.html">FAQS</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>LOCATION</h3>
+                <p style="color: #5a5a5a; line-height: 1.8;">
+                    4620 Hollywood Boulevard<br>
+                    Los Angeles, CA 90027
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>CONNECT</h3>
+                <ul>
+                    <li><a href="#">INSTAGRAM</a></li>
+                    <li><a href="#">LINKEDIN</a></li>
+                    <li><a href="#">PSYCHOLOGY TODAY</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>RISLEY COUNSELING OFFERS INDIVIDUAL, COUPLES, AND FAMILY THERAPY IN LOS ANGELES, CALIFORNIA.</p>
+            <p style="margin-top: 20px;">© 2024 RISLEY COUNSELING. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -39,7 +39,10 @@
 
         .main-header {
             background-color: #f5f1eb;
-            padding: 30px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
             position: fixed;
             top: 0;
             left: 0;
@@ -54,26 +57,37 @@
         }
 
         .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-link {
+            display: block;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .logo-link img {
+            height: 100%;
+            width: auto;
+            display: block;
         }
 
         .logo {
-            font-size: 2.5rem;
-            font-weight: 300;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-            color: #3a3a3a;
+            display: none;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
             gap: 30px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -294,6 +308,16 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .logo-link {
+                height: 60px;
+                margin-bottom: 15px;
+            }
+
             .description-content {
                 grid-template-columns: 1fr;
             }
@@ -370,7 +394,9 @@
 
     <header class="main-header">
         <div class="header-content">
-            <div class="logo">risley leskos</div>
+            <a href="index.html" class="logo-link">
+                <img src="images/RisleyLogo.png" alt="Risley Logo">
+            </a>
             <nav>
                 <ul>
                     <li class="dropdown">
@@ -381,13 +407,13 @@
                             <a href="faq.html">FAQS</a>
                         </div>
                     </li>
-                    <li><a href="#services">SERVICES</a></li>
-                    <li><a href="#specialties">SPECIALTIES</a></li>
-                    <li><a href="#approach">APPROACH</a></li>
-                    <li><a href="#fees">FEES</a></li>
-                    <li><a href="#resources">RESOURCES</a></li>
-                    <li><a href="#contact">CONTACT</a></li>
-                    <li><a href="#book" class="book-btn">BOOK</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="specialties.html">SPECIALTIES</a></li>
+                    <li><a href="approach.html">APPROACH</a></li>
+                    <li><a href="fees.html">FEES</a></li>
+                    <li><a href="resources.html">RESOURCES</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="book.html" class="book-btn">BOOK</a></li>
                 </ul>
             </nav>
         </div>
@@ -467,7 +493,7 @@
 
     <section class="cta-section">
         <h2>BEGIN YOUR THERAPY JOURNEY</h2>
-        <a href="#book" class="btn">BOOK A SESSION</a>
+        <a href="book.html" class="btn">BOOK A SESSION</a>
     </section>
 
     <div class="founder-section">

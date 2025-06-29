@@ -52,7 +52,10 @@
 
         .main-header {
             background-color: #f5f1eb;
-            padding: 30px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
             position: fixed;
             top: 0;
             left: 0;
@@ -67,26 +70,33 @@
         }
 
         .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 300;
-            letter-spacing: 3px;
+        .logo-link {
+            display: block;
+            height: 80px;
             margin-bottom: 20px;
-            color: #3a3a3a;
+        }
+
+        .logo-link img {
+            height: 100%;
+            width: auto;
+            display: block;
         }
 
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
             gap: 30px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -171,22 +181,48 @@
             align-items: center;
         }
 
-        .hero-image {
+        /* Left image container */
+        .hero-image-wrapper {
             position: relative;
             height: 400px;
+            width: 100%;
+        }
+
+        .hero-image-wrapper.left {
+            height: 400px;
+        }
+
+        .hero-image-wrapper.right {
+            height: 480px;
+        }
+
+        .background-shape {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #e8e2d8;
+            transform: rotate(-3deg);
+            border-radius: 8px;
+            z-index: 1;
+        }
+
+        .hero-image {
+            position: relative;
+            width: 100%;
+            height: 100%;
             overflow: hidden;
+            border-radius: 8px;
+            z-index: 2;
         }
 
         .hero-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            box-shadow: 0 10px 30px rgba(166, 155, 140, 0.2);
             transition: transform 0.3s ease;
         }
 
-        .hero-image:hover img {
+        .hero-image-wrapper:hover .hero-image img {
             transform: scale(1.02);
         }
 
@@ -523,13 +559,23 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .logo-link {
+                height: 60px;
+                margin-bottom: 15px;
+            }
+
             .hero {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
 
-            .hero-image {
-                height: 200px;
+            .hero-image-wrapper.left,
+            .hero-image-wrapper.right {
+                height: 300px;
+            }
+
+            .hero-image-wrapper {
+                height: 250px !important;
             }
 
             .hero h1 {
@@ -694,7 +740,9 @@
 
     <header class="main-header">
         <div class="header-content">
-            <div class="logo">Risley Counseling</div>
+            <a href="index.html" class="logo-link">
+                <img src="images/RisleyLogo.png" alt="Risley Logo">
+            </a>
             <nav>
                 <ul>
                     <li class="dropdown">
@@ -705,13 +753,13 @@
                             <a href="faq.html">FAQS</a>
                         </div>
                     </li>
-                    <li><a href="#services">SERVICES</a></li>
-                    <li><a href="#specialties">SPECIALTIES</a></li>
-                    <li><a href="#approach">APPROACH</a></li>
-                    <li><a href="#fees">FEES</a></li>
-                    <li><a href="#resources">RESOURCES</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="specialties.html">SPECIALTIES</a></li>
+                    <li><a href="approach.html">APPROACH</a></li>
+                    <li><a href="fees.html">FEES</a></li>
+                    <li><a href="resources.html">RESOURCES</a></li>
                     <li><a href="contact.html">CONTACT</a></li>
-                    <li><a href="#book" class="book-btn">BOOK</a></li>
+                    <li><a href="book.html" class="book-btn">BOOK</a></li>
                 </ul>
             </nav>
         </div>
@@ -740,21 +788,26 @@
 
     <section class="hero">
         <div class="hero-container">
-            <div class="hero-image">
-                <img src="images/AIWoman.png" alt="Therapeutic Environment" />
+        <div class="hero-image-wrapper left">
+                <div class="background-shape"></div>
+                <div class="hero-image">
+                    <img src="images/AIWoman.png" alt="Therapeutic Environment" />
+                </div>
             </div>
             <div class="hero-content">
                 <div class="hero-logo">
                     <span class="location">LA</span>
                     <img src="images/RisleyLogo.png" alt="Risley Counseling Logo" style="height: 40px; width: auto; transition: transform 0.3s ease;">
                     <span class="location">CA</span>
-                </div>
+        </div>
                 <h1>FIND YOURSELF AGAIN</h1>
                 <p class="hero-subtitle">Counseling for addictions and life</p>
                 <a href="#team" class="hero-btn">MEET WITH ME →</a>
-            </div>
-            <div class="hero-image">
-                <img src="images/ZenGarden.png" alt="Zen Garden" />
+        </div>
+        <div class="hero-image-wrapper right">
+                <div class="hero-image">
+                    <img src="images/ZenGarden.png" alt="Zen Garden" />
+                </div>
             </div>
         </div>
     </section>
@@ -763,7 +816,7 @@
         <div class="founder-image">
             <img src="images/RisleyHeadshot.JPG" alt="Risley" />
         </div>
-        <div class="founder-text">
+            <div class="founder-text">
             <h3>ABOUT ME</h3>
             <p>I have varied experience working with clients who suffer from addiction and co-occurring disorders, as well as clients who are recovering from and managing severe mental health issues. My mission is to help you find your authenticity and sense of self in the face of life stressors and transitions.</p>
             <p>If you are navigating sobriety or other major life transitions and finding it hard to cope with your new "normal," you are not alone. Healing and growth are often painful experiences. Reach out to find compassion, support, and understanding as we work to help get you where you were always going- towards a loving and supportive internal experience.</p>
@@ -773,7 +826,7 @@
                 Supervised by Jeff Bornstein, LPCC</p>
             </div>
             <a href="contact.html" class="btn">JUMP IN</a>
-        </div>
+                    </div>
     </section>
 
     <section class="services-section">
